@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+ <!-- Required meta tags -->
+ <meta charset="utf-8">
+ <title>Play</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <!-- Bootstrap CSS -->
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+ <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ <script
+   src="https://code.jquery.com/jquery-3.1.1.js"  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="  crossorigin="anonymous"></script>
+    <style>
+    body{
+        padding: 50px;
+    }
+        .form{
+            width: 60%;
+            max-width: 500px;
+            margin: 10px auto;
+        }
+        #inputarea{
+            outline: none;
+            width: 100%;
+            padding: 10px 45px 10px 30px;
+            border: none;
+            -webkit-box-shadow: 1px 2px 5px 0px rgba(59,56,59,1);
+            -moz-box-shadow: 1px 2px 5px 0px rgba(59,56,59,1);
+            box-shadow: 1px 2px 5px 0px rgba(59,56,59,1);
+        }
+        #clear{
+            display: none;
+            margin-left: -30px;
+            cursor: pointer;
+        }
+        #caret{
+            cursor: pointer;
+            margin-left: -20px;
+        }
+        #caret:hover{
+            color: green;
+        }
+        #clear:hover{
+            color: red;
+        }
+        #search{
+            position: absolute;
+            margin-left: 8px;
+            margin-top: 15px;
+        }
+        #drop{
+            height: 200px;
+            width: 100%;
+            border-left: 1px solid grey;
+            border-bottom: 1px solid grey;
+            border-right: 1px solid grey;
+            padding: 20px;
+            display: none;
+        }
+        .toggle{
+            transform: rotate(180deg);
+        }
+        .center{
+            width: 100%;
+            text-align: center;
+            margin: 100px auto;
+            color: #16a085;
+        }
+        @media(max-width: 500px){
+            .form{
+                width: 100%;
+            }
+        }
+    </style>
+
+ </head>
+ <body>
+     <div class="center">
+         <h1>Zunzuli Search</h1>
+     </div>
+ <form action="" class="form">
+    <i class="fa fa-search" aria-hidden="true" id="search"></i><input type="text" id="inputarea" placeholder="Search my Site"><i class="fa fa-caret-down" aria-hidden="true" id="caret"></i><i class="fa fa-times" aria-hidden="true" id="clear"></i>
+    <div id="drop">
+        <input type="text" placeholder="Does not contain">
+        <div class="form-group">
+            <input type="radio" name="radio">
+        </div>
+    </div>
+</form>
+ <!-- jQuery first, then Tether, then Bootstrap JS. -->
+ <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+ <script>
+    $("#caret").click(function(){
+        $("#caret").toggleClass("toggle");
+        $("#drop").toggle();
+    });
+     $("#inputarea").on('change keyup paste', function(){
+           if($("#inputarea").val()!=""){
+               $("#clear").show();
+           }else{
+               $("#clear").hide();
+           }
+        });
+
+     $("#clear").click(function(){
+        $("#inputarea").val("");
+         $("#clear").hide();
+         $("#inputarea").focus();
+     });
+ </script>
+ </body>
+ </html>
